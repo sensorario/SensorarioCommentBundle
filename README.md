@@ -7,6 +7,19 @@ Register Sensorario Namespace
         ....
     ));
 
+Install
+=======
+
+Update your deps file
+
+    [SensorarioCommentBundle]
+        git=git://github.com/sensorario/SensorarioCommentBundle.git
+        target=/bundles/Sensorario/CommentBundle
+
+And install this vendor
+
+    $ php bin/vendors install
+
 Update your DB schema
 =====================
 
