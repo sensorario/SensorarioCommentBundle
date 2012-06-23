@@ -28,6 +28,18 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/sensorario/comment/delete/{id}", name="sensorario_comment_delete")
+     * @Template()
+     */
+    public function deleteAction($id)
+    {
+
+        return array(
+            'id' => $id,
+        );
+    }
+
+    /**
      * @Route("/sensorario/comments/{id}")
      * @Template()
      */
