@@ -33,14 +33,21 @@ class DefaultController extends Controller
      */
     public function deleteAction($id)
     {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('SensorarioCommentBundle:Comment')
+                ->find($id);
+        $em->remove($entity);
+        $em->flush();
 
-        return array(
-            'id' => $id,
+        $url = $this->generateUrl('sensorario_comments_index', array(
+            'id' => $id)
         );
+
+        return $this->redirect($url);
     }
 
     /**
-     * @Route("/sensorario/comments/{id}")
+     * @Route("/sensorario/comments/{id}", name="sensorario_comments_index")
      * @Template()
      */
     public function indexAction($id)

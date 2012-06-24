@@ -6,7 +6,10 @@
                 <strong>Commento</strong>: {{ commento.comment }}<br />
             </td>
             <td>
-                <a href="{{ path('sensorario_comment_delete', {'id': commento.id}) }}">cancella</a>
+                <a  
+                href="{{ path('sensorario_comment_delete', {'id': commento.id}) }}"
+                class="SensorarioCommentsDelete"
+                id="delete_{{ commento.id }}">cancella</a>
             </td>
         </tr>
     </table>
