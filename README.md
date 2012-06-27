@@ -7,6 +7,23 @@ Register Sensorario Namespace
         ....
     ));
 
+Add Bundle to AppKernel
+=======================
+
+    class AppKernel extends Kernel
+    {
+        public function registerBundles()
+        {
+            $bundles = array(
+                ...
+                new Sensorario\CommentBundle\SensorarioCommentBundle(),
+                ...
+            );
+        }
+
+        ...
+    }
+
 Install
 =======
 
