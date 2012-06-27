@@ -17,6 +17,7 @@
                                     url: sensorario_comments_comments,
                                     success: function (data) {
                                         SensorarioComments.reloadComments();
+                                        $('textarea#sensorario_comment_form_comment').val('');
                                     }
                                 });
                             });

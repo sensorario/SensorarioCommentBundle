@@ -1,9 +1,7 @@
 <div id="sensorario_comment_form">
     <form id="sensorario_comment_form_form" method="POST"
           action="{{ path('sensorario_comment_create', {'id': id}) }}">
-        <strong>Titolo:</strong> <input type="text" name="title" value="titolo" /><br />
-        <strong>Comment:</strong> <textarea name="comment">Commento</textarea><br />
-        <hr />
+        <textarea name="comment" id="sensorario_comment_form_comment"></textarea>
         <input type="button" id="sensorario_comment_form_button_submit" value="Save" />
     </form>
 </div>

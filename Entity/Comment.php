@@ -29,13 +29,6 @@ class Comment
     private $author;
 
     /**
-     * @var string $title
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    private $title;
-
-    /**
      * @var string $comment
      *
      * @ORM\Column(name="comment", type="string", length=140)
