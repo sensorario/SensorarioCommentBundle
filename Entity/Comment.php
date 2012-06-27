@@ -22,6 +22,13 @@ class Comment
     private $id;
 
     /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="unique_id", type="string", length="50", nullable="true")
+     */
+    private $unique_id;
+
+    /**
      * @var object $author
      *
      * @ORM\Column(name="author", type="string", length=255)
@@ -112,7 +119,6 @@ class Comment
         return $this->comment;
     }
 
-
     /**
      * Set creation_date
      *
@@ -132,4 +138,25 @@ class Comment
     {
         return $this->creation_date;
     }
+
+    /**
+     * Set unique_id
+     *
+     * @param string $uniqueId
+     */
+    public function setUniqueId($uniqueId)
+    {
+        $this->unique_id = $uniqueId;
+    }
+
+    /**
+     * Get unique_id
+     *
+     * @return string 
+     */
+    public function getUniqueId()
+    {
+        return $this->unique_id;
+    }
+
 }

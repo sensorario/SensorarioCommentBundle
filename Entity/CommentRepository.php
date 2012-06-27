@@ -12,10 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommentRepository extends EntityRepository
 {
-    public function findOrderedFromlastToFirst()
+    public function findOrderedFromlastToFirst($id)
     {
         return $this->createQueryBuilder('c')
                         ->orderBy('c.creation_date', 'desc')
+                        ->where('c.unique_id = :unique_id')
+                        ->setParameter('unique_id', $id)
                         ->getQuery()
                         ->getResult();
     }

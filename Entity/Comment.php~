@@ -22,18 +22,18 @@ class Comment
     private $id;
 
     /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="unique_id", type="string", length="50", nullable="true")
+     */
+    private $unique_id;
+
+    /**
      * @var object $author
      *
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
-
-    /**
-     * @var string $title
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    private $title;
 
     /**
      * @var string $comment
@@ -117,6 +117,46 @@ class Comment
     public function getComment()
     {
         return $this->comment;
+    }
+
+    /**
+     * Set creation_date
+     *
+     * @param datetime $creationDate
+     */
+    public function setCreationDate($creationDate)
+    {
+        $this->creation_date = $creationDate;
+    }
+
+    /**
+     * Get creation_date
+     *
+     * @return datetime 
+     */
+    public function getCreationDate()
+    {
+        return $this->creation_date;
+    }
+
+    /**
+     * Set unique_id
+     *
+     * @param string $uniqueId
+     */
+    public function setUniqueId($uniqueId)
+    {
+        $this->unique_id = $uniqueId;
+    }
+
+    /**
+     * Get unique_id
+     *
+     * @return string 
+     */
+    public function getUniqueId()
+    {
+        return $this->unique_id;
     }
 
 }
