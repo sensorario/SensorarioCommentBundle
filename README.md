@@ -49,4 +49,4 @@ update your database before start to use this bundle.
 Usage
 =====
 
-    {% render 'SensorarioCommentBundle:Default:index' with {'id': 'home_page'} %}
+    {% render 'SensorarioCommentBundle:Default:index' with {'unique_id': 'home_page'} %}
