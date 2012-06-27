@@ -18,6 +18,7 @@
                                     success: function (data) {
                                         SensorarioComments.reloadComments();
                                         $('textarea#sensorario_comment_form_comment').val('');
+                                        $('textarea#sensorario_comment_form_comment').focus();
                                     }
                                 });
                             });
