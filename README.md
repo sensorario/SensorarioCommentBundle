@@ -61,6 +61,8 @@ Run this command:
 Add routing
 ===========
 
+Add this in routing.yml
+
     SensorarioCommentBundle:
         resource: "@SensorarioCommentBundle/Controller/"
         type:     annotation
