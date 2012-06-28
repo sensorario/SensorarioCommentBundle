@@ -37,16 +37,23 @@ And install this vendor
 
     $ php bin/vendors install
 
-Update your DB schema
-=====================
+Update your DB schema with Doctrine
+===================================
 
+If you want, can add migrations for update your database.
 SensorarioCommentBundle use Comment entity to store comments. So, you must
 update your database before start to use this bundle.
 
     $ php app/console doctrine:migrations:diff
     $ php app/console doctrine:migrations:migrate
 
+Also, you can update your database schema with:
+
+    $ php app/console doctrine:schema:update --force
+
 Usage
 =====
+
+Just put this snippet of code on your pages, to comment it.
 
     {% render 'SensorarioCommentBundle:Default:index' with {'unique_id': 'home_page'} %}
