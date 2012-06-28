@@ -51,6 +51,21 @@ Also, you can update your database schema with:
 
     $ php app/console doctrine:schema:update --force
 
+Install assets
+==============
+
+Run this command:
+
+    $ php app/console assets:install web/
+
+Add routing
+===========
+
+    SensorarioCommentBundle:
+        resource: "@SensorarioCommentBundle/Controller/"
+        type:     annotation
+        prefix:   /
+
 Usage
 =====
 
