@@ -34,11 +34,14 @@
                     console.log('readed comments');
                     $('.SensorarioCommentsComments').html(data);
                     $('.SensorarioCommentsDelete').each(function(){
+                        
                         var link_commento = $(this).attr('id');
-                        var link_commento_href = $(this).attr('href');
+                        var id_commento = $(this).attr('data');
+                        var link_commento_href = $(this).attr('href') + '/' + id_commento;
+                        
                         $(this).attr('href', 'javascript:return false;');
+                        
                         $('#' + link_commento).click(function(){
-                            console.log('Adesso apro ' + link_commento_href);
                             $.ajax({
                                 url: link_commento_href,
                                 success: function (data) {

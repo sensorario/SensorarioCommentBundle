@@ -80,10 +80,15 @@ class DefaultController extends Controller
      */
     public function createAction($unique_id)
     {
+        $user = $this // Get the username of current user
+                ->get('security.context')
+                ->getToken()
+                ->getUser();
+
         $commento = new Comment;
 
         $commento->setTitle($this->getRequest()->get('title'));
-        $commento->setAuthor('Guest');
+        $commento->setAuthor($user->getUsername());
         $commento->setComment($this->getRequest()->get('comment'));
         $commento->setUniqueId($unique_id);
         $commento->setCreationDate(new \DateTime());

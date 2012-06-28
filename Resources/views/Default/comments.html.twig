@@ -2,13 +2,14 @@
     <table>
         <tr>
             <td>
-                <strong>Commento</strong>: {{ commento.comment }}<br />
+                <strong>{{ commento.author }}</strong>: {{ commento.comment }}<br />
             </td>
             <td>
                 <a  
                 href="{{ path('sensorario_comment_delete', {'unique_id': commento.unique_id}) }}"
                 class="SensorarioCommentsDelete"
-                id="delete_{{ commento.id }}">cancella</a>
+                id="delete_{{ commento.id }}"
+                data="{{ commento.id }}">cancella</a>
             </td>
         </tr>
     </table>
