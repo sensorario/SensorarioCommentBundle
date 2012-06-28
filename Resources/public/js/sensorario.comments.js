@@ -45,7 +45,7 @@
                             $.ajax({
                                 url: link_commento_href,
                                 success: function (data) {
-                                    SensorarioComments.reloadComments();
+                                    $('#sensorario_comment_tr_' + id_commento).fadeOut();
                                 }
                             });
                         });

@@ -1,6 +1,6 @@
-{% for commento in comments %}
-    <table>
-        <tr>
+<table>
+    {% for commento in comments %}
+        <tr id="sensorario_comment_tr_{{ commento.id }}">
             <td>
                 <strong>{{ commento.author }}</strong>: {{ commento.comment }}<br />
             </td>
@@ -9,8 +9,8 @@
                 href="{{ path('sensorario_comment_delete', {'unique_id': commento.unique_id}) }}"
                 class="SensorarioCommentsDelete"
                 id="delete_{{ commento.id }}"
-                data="{{ commento.id }}">cancella</a>
+                data="{{ commento.id }}">x</a>
             </td>
         </tr>
-    </table>
-{% endfor %}
+    {% endfor %}
+</table>
