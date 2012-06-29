@@ -1,7 +1,7 @@
 <div id="sensorario_comment_form">
     <form id="sensorario_comment_form_form" method="POST"
           action="{{ path('sensorario_comment_create', {'unique_id': unique_id}) }}">
-        <textarea name="comment" id="sensorario_comment_form_comment"></textarea>
+        {{ form_widget(form) }}
         <input type="button" id="sensorario_comment_form_button_submit" value="Save" />
     </form>
 </div>

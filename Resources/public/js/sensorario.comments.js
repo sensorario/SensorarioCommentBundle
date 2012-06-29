@@ -4,24 +4,25 @@
         var SensorarioComments = $(this);
 
         SensorarioComments.reloadForm = function (formConCommento) {
+            var fieldCommentId = 'textarea#sensorario_commentbundle_commenttype_comment';
+            var submitButtonId = '#sensorario_comment_form_button_submit';
+            var formCommento = '#sensorario_comment_form_form';
             $.ajax({
                 url: sensorario_comments_index,
                 success: function (data) {
                     formConCommento.html(data);
-                    $('#sensorario_comment_form_button_submit')
-                    .click(function(){
+                    $(submitButtonId).click(function(){
                         $.post(sensorario_comment_create, 
-                            $("#sensorario_comment_form_form")
-                            .serialize(), function (data) {
-                                $.ajax({
-                                    url: sensorario_comments_comments,
-                                    success: function (data) {
-                                        SensorarioComments.reloadComments();
-                                        $('textarea#sensorario_comment_form_comment').val('');
-                                        $('textarea#sensorario_comment_form_comment').focus();
-                                    }
-                                });
+                        $(formCommento).serialize(), function (data) {
+                            $.ajax({
+                                url: sensorario_comments_comments,
+                                success: function (data) {
+                                    SensorarioComments.reloadComments();
+                                    $(fieldCommentId).val('');
+                                    $(fieldCommentId).focus();
+                                }
                             });
+                        });
                     });
                 }
             });

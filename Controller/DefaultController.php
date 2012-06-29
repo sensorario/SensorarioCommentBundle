@@ -61,9 +61,8 @@ class DefaultController extends Controller
      * @Route("/sensorario/template/{unique_id}", name="sensorario_comments_template")
      * @Template()
      */
-    public function templateAction($unique_id)
+    public function newAction($unique_id)
     {
-
         $entity = new Comment();
         $form = $this->createForm(new CommentType(), $entity);
 
@@ -85,18 +84,22 @@ class DefaultController extends Controller
                 ->getToken()
                 ->getUser();
 
+        $doctrine = $this->getDoctrine();
+
+        $entityManager = $doctrine->getEntityManager();
+
         $commento = new Comment;
-
-        $commento->setTitle($this->getRequest()->get('title'));
         $commento->setAuthor($user->getUsername());
-        $commento->setComment($this->getRequest()->get('comment'));
-        $commento->setUniqueId($unique_id);
         $commento->setCreationDate(new \DateTime());
+        $commento->setUniqueId($unique_id);
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $form = $this->createForm(new CommentType(), $commento);
+        $form->bindRequest($this->getRequest());
 
-        $em->persist($commento);
-        $em->flush();
+        if ($form->isValid()) {
+            $entityManager->persist($commento);
+            $entityManager->flush();
+        }
 
         return $this->forward('SensorarioCommentBundle:Default:index', array(
                     'unique_id' => $unique_id,
