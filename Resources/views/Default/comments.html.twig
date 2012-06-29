@@ -2,12 +2,12 @@
     {% for commento in comments %}
         <tr id="sensorario_comment_tr_{{ commento.id }}">
             <td>
-                {{ commento.getCreationDate }}<br />
+                {{ commento.getCreationDate|date("d/m/Y") }}<br />
                 <strong>{{ commento.author }}</strong>: {{ commento.comment }}<br />
             </td>
             <td>
                 <a  
-                href="{{ path('sensorario_comment_delete', {'unique_id': commento.unique_id}) }}"
+                href="{{ path('sensorario_comment_delete', {'unique_id': commento.id}) }}"
                 class="SensorarioCommentsDelete"
                 id="delete_{{ commento.id }}"
                 data="{{ commento.id }}">x</a>

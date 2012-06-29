@@ -39,15 +39,14 @@
                         
                         var link_commento = $(this).attr('id');
                         var id_commento = $(this).attr('data');
-                        var link_commento_href = $(this).attr('href') + '/' + id_commento;
+                        var link_delete_commento_href = $(this).attr('href');
                         
                         $(this).attr('href', 'javascript:void(0)');
                         
                         $('#' + link_commento).click(function(){
-                            $.ajax({
-                                url: link_commento_href,
+                            $.post(link_delete_commento_href, {
                                 success: function (data) {
-                                    $('#sensorario_comment_tr_' + id_commento).fadeOut();
+                                    $('#sensorario_comment_tr_' + id_commento).fadeOut('slow');
                                 }
                             });
                         });
