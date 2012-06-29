@@ -4,7 +4,7 @@
         var SensorarioComments = $(this);
 
         SensorarioComments.reloadForm = function (formConCommento) {
-            var fieldCommentId = 'textarea#sensorario_commentbundle_commenttype_comment';
+            var fieldCommentId = '#sensorario_commentbundle_commenttype_comment';
             var submitButtonId = '#sensorario_comment_form_button_submit';
             var formCommento = '#sensorario_comment_form_form';
             $.ajax({
@@ -18,6 +18,7 @@
                                 url: sensorario_comments_comments,
                                 success: function (data) {
                                     SensorarioComments.reloadComments();
+                                    console.log('Pulisco ' + fieldCommentId);
                                     $(fieldCommentId).val('');
                                     $(fieldCommentId).focus();
                                 }
@@ -32,7 +33,6 @@
             $.ajax({
                 url: sensorario_comments_comments,
                 success: function (data) {
-                    console.log('readed comments');
                     $('.SensorarioCommentsComments').html(data);
                     $('.SensorarioCommentsDelete').each(function(){
                         
