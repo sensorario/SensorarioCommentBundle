@@ -41,7 +41,7 @@
                         var id_commento = $(this).attr('data');
                         var link_commento_href = $(this).attr('href') + '/' + id_commento;
                         
-                        $(this).attr('href', 'javascript:return false;');
+                        $(this).attr('href', 'javascript:void(0)');
                         
                         $('#' + link_commento).click(function(){
                             $.ajax({
