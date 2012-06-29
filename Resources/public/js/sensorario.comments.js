@@ -18,7 +18,6 @@
                                 url: sensorario_comments_comments,
                                 success: function (data) {
                                     SensorarioComments.reloadComments();
-                                    console.log('Pulisco ' + fieldCommentId);
                                     $(fieldCommentId).val('');
                                     $(fieldCommentId).focus();
                                 }
