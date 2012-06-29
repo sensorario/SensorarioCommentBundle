@@ -4,9 +4,11 @@
         var SensorarioComments = $(this);
 
         SensorarioComments.reloadForm = function (formConCommento) {
+            
             var fieldCommentId = '#sensorario_commentbundle_commenttype_comment';
             var submitButtonId = '#sensorario_comment_form_button_submit';
             var formCommento = '#sensorario_comment_form_form';
+            
             $.ajax({
                 url: sensorario_comments_index,
                 success: function (data) {
