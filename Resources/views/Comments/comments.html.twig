@@ -5,13 +5,15 @@
                 {{ commento.getCreationDate|date("d/m/Y") }}<br />
                 <strong>{{ commento.author }}</strong>: {{ commento.comment }}<br />
             </td>
-            <td>
-                <a  
-                href="{{ path('sensorario_comment_delete', {'unique_id': commento.id}) }}"
-                class="SensorarioCommentsDelete"
-                id="delete_{{ commento.id }}"
-                data="{{ commento.id }}">x</a>
-            </td>
+            {% if app.user %}
+                <td>
+                    <a  
+                    href="{{ path('sensorario_comment_delete', {'unique_id': commento.id}) }}"
+                    class="SensorarioCommentsDelete"
+                    id="delete_{{ commento.id }}"
+                    data="{{ commento.id }}">x</a>
+                </td>
+            {% endif %}
         </tr>
     {% endfor %}
 </table>
