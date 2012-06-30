@@ -25,7 +25,7 @@ class NewController extends Controller
         return array(
             'entity' => $entity,
             'form' => $form->createView(),
-            'id' => $unique_id,
+            'unique_id' => $unique_id,
         );
     }
 
