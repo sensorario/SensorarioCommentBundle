@@ -1,7 +1,9 @@
 <div id="sensorario_comment_form">
-    <form id="sensorario_comment_form_form" method="POST" onsubmit="return false"
-          action="{{ path('sensorario_comment_create', {'unique_id': unique_id}) }}">
-        {{ form_widget(form) }}
-        <input type="button" id="sensorario_comment_form_button_submit" value="Save" />
-    </form>
+    {% if app.user %}
+        <form id="sensorario_comment_form_form" method="POST" onsubmit="return false"
+            action="{{ path('sensorario_comment_create', {'unique_id': unique_id}) }}">
+            {{ form_widget(form) }}
+            <input type="button" id="sensorario_comment_form_button_submit" value="Save" />
+        </form>
+    {% endif %}
 </div>

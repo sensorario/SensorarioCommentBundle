@@ -23,7 +23,11 @@ class AjaxController extends Controller
                 ->get('security.context')
                 ->getToken()
                 ->getUser();
-
+        
+        if(!is_object($user)) {
+            return new Response();
+        }
+        
         $doctrine = $this->getDoctrine();
 
         $entityManager = $doctrine->getEntityManager();
