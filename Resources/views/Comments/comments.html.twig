@@ -2,7 +2,7 @@
     {% for commento in comments %}
         <tr id="sensorario_comment_tr_{{ commento.id }}">
             <td>
-                {{ commento.getCreationDate }}<br />
+                {{ commento.getCreationDate|date("d/m/Y") }}<br />
                 <strong>{{ commento.author }}</strong>: {{ commento.comment }}<br />
             </td>
             <td>

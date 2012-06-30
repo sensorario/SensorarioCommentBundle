@@ -83,7 +83,7 @@ Usage
 Just put this snippet of code on your pages, to comment them. And just remember
 to change "unique_id" for each different "thread".
 
-    {% render 'SensorarioCommentBundle:Default:index' with {'unique_id': 'home_page'} %}
+    {% render 'SensorarioCommentBundle:Index:index' with {'unique_id': 'home_page'} %}
 
 Nice gui with Twitter Bootstrap
 ===============================
