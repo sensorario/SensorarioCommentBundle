@@ -5,5 +5,7 @@
             {{ form_widget(form) }}
             <input type="button" id="sensorario_comment_form_button_submit" value="Save" />
         </form>
+    {% else %}
+        <em>Signin to leave a comment.</em>
     {% endif %}
 </div>
