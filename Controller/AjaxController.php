@@ -23,11 +23,11 @@ class AjaxController extends Controller
                 ->get('security.context')
                 ->getToken()
                 ->getUser();
-        
-        if(!is_object($user)) {
+
+        if (!is_object($user)) {
             return new Response();
         }
-        
+
         $doctrine = $this->getDoctrine();
 
         $entityManager = $doctrine->getEntityManager();
@@ -55,6 +55,15 @@ class AjaxController extends Controller
      */
     public function deleteAction($unique_id)
     {
+        $user = $this // Get the username of current user
+                ->get('security.context')
+                ->getToken()
+                ->getUser();
+
+        if (!is_object($user)) {
+            return new Response();
+        }
+
         $em = $this->getDoctrine()->getEntityManager();
         $entity = $em->getRepository('SensorarioCommentBundle:Comment')
                 ->find($unique_id);
